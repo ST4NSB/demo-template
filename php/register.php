@@ -9,8 +9,13 @@
     
     $sql = "INSERT INTO user (nume, prenume, email, password, activ, tip, sir) 
         VALUES ('$name', '$surname', '$email', '$sha1_pass', 'TBA', 'TBA', 'TBA')";
-    if(mysql_query($sql, $conn)) 
-      include 'user_logged.php';
+    if(mysql_query($sql, $conn)) {
+      session_start();
+      $_SESSION['$user_logged'] = True;
+      $_SESSION['$name'] = $name;
+      $_SESSION['$surname'] = $surname;
+      header("Location: ../index.php");
+    }
     else 
       echo "<p>Error: " . $sql . "<br>" . mysql_error($conn) . "</p>";
 ?>

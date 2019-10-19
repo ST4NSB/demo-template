@@ -9,9 +9,13 @@
     $result = mysql_query($sql);
     if($result) {
       while($row = mysql_fetch_array($result)) {
-        include 'user_logged.php';
+        session_start();
+        $_SESSION['$user_logged'] = True;
+        $_SESSION['$name'] = $row['nume'];
+        $_SESSION['$surname'] = $row['prenume'];
       }
       mysql_free_result($result);
+      header("Location: ../index.php");
     }
     else echo "<p>No accounts registered with this email!</p>";
 ?>

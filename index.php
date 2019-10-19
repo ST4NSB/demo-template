@@ -2,38 +2,48 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
     <title>Main Page</title>
   </head>
   <body>
   
-    <?php
-      include 'navbar.php'
-    ?>
-    
-    <header>
-      <h1>Header tag</h1>
-    </header>
-    
-    <div id="text_view">
-      <div id="left_view">
-        <h3>Left view</h3>
-        <?php
-          session_start();
-          if(!$_SESSION['$user_logged']) {
-            include "form_login.html"; 
-            include "form_register.html";
-          }
-          else echo "<p>welcome</p>";
+    <div id="container">
+  
+      <?php
+        include 'php/user_logged.php';
+        include 'navbar.php';
+      ?>
+      
+      <header>
+        <h1>Header tag</h1>
+        <?php 
+          if($_SESSION['$user_logged'])
+            echo "<p>welcome, " . $_SESSION['$name'] . " " . $_SESSION['$surname'] . "!</p>"; 
         ?>
+      </header>
+      
+      <div id="text_view">
+        <div id="col1">
+          <h3>Left view</h3>
+          <?php
+            if(!$_SESSION['$user_logged']) 
+              include "form_login.html"; 
+          ?>
+        </div>
+        <div id="col2">
+          <h3>Right view</h3>
+          <?php
+            if(!$_SESSION['$user_logged']) 
+              include "form_register.html";
+          ?>
+        </div>  
       </div>
-      <div id="right_view">
-        <h3>Right view</h3>
-      </div>  
-    </div>
+      
+      <footer>
+        <h1>Footer tag</h1>
+      </footer>
     
-    <footer>
-      <h2>Footer tag</h2>
-    </footer>
+    </div>
 
   </body>
 </html>
