@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Main Page</title>
-	</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+  </head>
   <body>
-
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
     
-    <?php include "form_login.html" ?>
+    <?php
+      session_start();
+      if(!$_SESSION['$user_logged']) {
+        include "form_login.html"; 
+        include "form_register.html";
+      }
+      else echo "<p>welcome</p>";
+    ?>
 
   </body>
 </html>
