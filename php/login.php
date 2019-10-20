@@ -8,14 +8,19 @@
     $sql = "SELECT * FROM user WHERE email='$email' AND password='$sha1_pass'";
     $result = mysql_query($sql);
     if($result) {
-      while($row = mysql_fetch_array($result)) {
-        session_start();
-        $_SESSION['$user_logged'] = True;
-        $_SESSION['$name'] = $row['nume'];
-        $_SESSION['$surname'] = $row['prenume'];
-      }
-      mysql_free_result($result);
-      header("Location: ../index.php");
+			if(mysql_num_rows($result) > 0 ) {
+				while($row = mysql_fetch_array($result)) {
+					session_start();
+					$_SESSION['$user_logged'] = True;
+					$_SESSION['$name'] = $row['nume'];
+					$_SESSION['$surname'] = $row['prenume'];
+				}
+				mysql_free_result($result);
+				header("Location: ../index.php");
+			}
+			else 
+				echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
     }
-    else echo "<p>No accounts registered with this email!</p>";
+    else 
+			echo "<p>No result from server!<br>Error: " . $result . "</p>";
 ?>
