@@ -12,6 +12,8 @@
       ?>
       
       <h1> pagina 2</h1>
+			<button type="button">Javascript</button>
     </div>
+		<script src="js/2.js"></script>
   </body>
 </html>

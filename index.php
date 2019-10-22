@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">	
+	
     <title>Main Page</title>
   </head>
   <body>
@@ -17,6 +18,6 @@
         include 'structure/footer.php';
       ?>
     </div>
-    
+    <script src="js/main.js"></script>
   </body>
 </html>
