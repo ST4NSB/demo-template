@@ -9,7 +9,7 @@
     
     $sql = "INSERT INTO user (nume, prenume, email, password, activ, tip, sir) 
         VALUES ('$name', '$surname', '$email', '$sha1_pass', 'TBA', 'TBA', 'TBA')";
-    if(mysql_query($sql, $conn)) {
+    if(mysql_query($sql, $conn->connection)) {
       session_start();
       $_SESSION['$user_logged'] = True;
       $_SESSION['$name'] = $name;
