@@ -12,11 +12,12 @@
 				while($row = mysql_fetch_array($result)) {
 					session_start();
 					$_SESSION['$user_logged'] = True;
+					$_SESSION['$user_id'] = $row['id'];
 					$_SESSION['$name'] = $row['nume'];
 					$_SESSION['$surname'] = $row['prenume'];
 				}
 				mysql_free_result($result);
-				header("Location: ../index.php");
+				header("Location: index.php");
 			}
 			else 
 				echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";

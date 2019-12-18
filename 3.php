@@ -6,7 +6,7 @@
     <?php
 		include 'php/user_logged.php';
 		if($_SESSION['$user_logged']) {
-			echo '<title>Pag 3</title>';
+			echo '<title>Sign Out</title>';
 		}
 		else {
 			echo '<title>Register Page</title>';
@@ -18,9 +18,10 @@
       <?php
         include 'navbar.php';
 		if($_SESSION['$user_logged']) {
+			include 'logout.php';
 		}
 		else {
-			include 'structure/form_register.html';
+			include 'form_register.html';
 		}
       ?>
     </div>

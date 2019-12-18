@@ -12,6 +12,11 @@
 	text-align: center;
 	color: #343a40;
 	}
+	
+	#container{
+	magin: 0 auto;
+	text-align: center;
+	}
 
     .searchbar{
     margin-bottom: auto;

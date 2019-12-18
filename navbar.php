@@ -21,11 +21,10 @@
 					<a class="nav-link" href="index.php">Index</a>
 				</li>
 				<?php 
-					include 'php/user_logged.php'; 
+					include 'user_logged.php'; 
 					if($_SESSION['$user_logged']) { 
-						echo '<li class="nav-item"><a class="nav-link" href="2.php">Pag. 2</a></li>'; 
-						echo '<li class="nav-item"><a class="nav-link" href="3.php">Pag. 3</a></li>'; 
-						echo '<li class="nav-item"><a class="nav-link" href="php/logout.php">Sign out</a></li>'; 
+						echo '<li class="nav-item"><a class="nav-link" href="2.php">My Profile</a></li>'; 
+						echo '<li class="nav-item"><a class="nav-link" href="3.php">Sign Out</a></li>'; 
 					} 
 					else { 
 						echo '<li class="nav-item"><a class="nav-link" href="2.php">Login</a></li>'; 
