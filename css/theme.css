@@ -52,6 +52,10 @@ a {
 	text-decoration: none;
 }
 
+.recent {
+	margin-bottom: 30px;
+}
+
 hr.style13 {
 	width: 65%;
 	border-top: 1px solid #444;
@@ -155,6 +159,8 @@ footer label {
 .movie_container {
 	margin: 0 auto;
 	width: 80%;
+	background-color: rgba(55,55,55,0.4);
+	padding: 5px;
 }
 
 .movie_plot {
@@ -222,5 +228,18 @@ footer label {
   border-bottom:0; /*needed for safari*/
   border-right:0; /*needed for safari*/
   border-image: linear-gradient(to bottom, #2b68c4 0%,#cf2d6e 100%)1;
-  
+}
+
+.stats_loved {
+	color: Tomato;
+}
+
+.r_love, .r_hate {
+	background-color: rgba(55,55,55,0.4);
+	width: 18%;
+	margin: 0 auto;
+}
+
+#bttn_love {
+	margin-right: 10px;
 }

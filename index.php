@@ -34,7 +34,7 @@
 	  
 	  <hr class="style13">
 	  
-	  <h1>Recent Ratings</h1>
+	  <h1 class="recent">Recent Ratings</h1>
 	  <div class="table">
 		<div class="row">
 	  <?php
@@ -91,9 +91,9 @@
 				echo '<h2>' . $json_resp->Title . ' (' . $json_resp->Year . ')</a></h2>';
 				echo '<a href="search.php?movie=' . $json_resp->Title . '"><img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '"></a>';
 				if($stats_perc < 70)
-					echo '<p><span class="stats_hated">' . $stats_perc . '% LOVED</span> this movie!</p>'; 
+					echo '<p><span class="stats_hated">' . $stats_perc . '% liked</span> the movie!</p>'; 
 				else 
-					echo '<p><span class="stats_loved">' . $stats_perc . '% LOVED</span> this movie!</p>'; 
+					echo '<p><span class="stats_loved">' . $stats_perc . '% &#128150</span> the movie!</p>'; 
 			}
 			
 			echo '<div class="col-sm">';

@@ -20,7 +20,8 @@
 			if($_SESSION['$user_logged']) {		
 				echo '<div id="container">';
 				echo '<h1>' . $_SESSION['$name'] . ' ' . $_SESSION['$surname'] . ' - Profile</h1>';			
-				echo '<button type="button">Javascript</button>';	
+				echo '<button id="bttn_love" type="button">Show/Hide &#128150</button>';	
+				echo '<button id="bttn_hate" type="button">Show/Hide &#128078</button>';	
 				
 				$u_id = $_SESSION['$user_id'];
 				$sql = "SELECT * FROM rated_movie WHERE user_id='$u_id'";
@@ -34,6 +35,10 @@
 							$response = file_get_contents($uri);
 							$json_resp = json_decode($response);
 							
+							echo '<div class="';
+							if($row['vote'] == 'LOVED')
+								echo 'r_love">';
+							else echo 'r_hate">';
 							echo '<p>' . $json_resp->Title;
 							if($row['vote'] == 'LOVED')
 								echo ' - <span class="sp_love">&#128150</span></p>';
@@ -42,6 +47,7 @@
 							
 							echo '<img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '">';
 							//echo '<p>Vote: ' . $row['vote'] . '</p>';
+							echo '</div>';
 						}
 						mysql_free_result($result);
 					}

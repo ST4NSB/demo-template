@@ -12,7 +12,7 @@
   <body>	
 		<section class="section section--menu" id="Iris">
 			<h2 class="section__title">Movie Rating Database</h2>
-			<img class="logo" alt="logo" src="http://via.placeholder.com/300x100">
+			<img class="logo" alt="logo" src="images/logo.png">
 			<nav class="menu menu--iris">
 				<ul id="navbar_up" class="menu__list">
 					<li class="menu__item"><a href="index.php" class="menu__link">Home</a></li>
