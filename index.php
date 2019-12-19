@@ -83,9 +83,10 @@
 			function write_movie($movie_id_list, $index) {
 				$mv_id = $movie_id_list[$index]->movie_id;
 				$stats_perc = ($movie_id_list[$index]->vote_love / $movie_id_list[$index]->all_votes) * 100;
+				$stats_perc = round($stats_perc, 2);
 				$key = 'beefda61';
 				$uri = "http://www.omdbapi.com/?apikey=" . $key . "&i=" . $mv_id;
-									
+								
 				$response = file_get_contents($uri);
 				$json_resp = json_decode($response);
 				echo '<h2>' . $json_resp->Title . ' (' . $json_resp->Year . ')</a></h2>';
