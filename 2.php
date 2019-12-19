@@ -24,7 +24,7 @@
 				echo '<button id="bttn_hate" type="button">Show/Hide &#128078</button>';	
 				
 				$u_id = $_SESSION['$user_id'];
-				$sql = "SELECT * FROM rated_movie WHERE user_id='$u_id'";
+				$sql = "SELECT * FROM rated_movie WHERE user_id='$u_id' ORDER BY id DESC";
 				$result = mysql_query($sql);
 				if($result) {
 					if(mysql_num_rows($result) > 0 ) {

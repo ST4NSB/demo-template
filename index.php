@@ -34,7 +34,7 @@
 	  
 	  <hr class="style13">
 	  
-	  <h1 class="recent">All Database Ratings</h1>
+	  <h1 class="recent">All Database Recent Ratings</h1>
 	  <div class="table">
 		<div class="row">
 	  <?php
@@ -53,7 +53,7 @@
 		include 'config.php';
 		
 		$movie_id_list = array();
-		$sql = "SELECT * FROM rated_movie";
+		$sql = "SELECT * FROM rated_movie ORDER BY id DESC";
 		$result = mysql_query($sql);
 		if($result) {
 			if(mysql_num_rows($result) > 0 ) {
