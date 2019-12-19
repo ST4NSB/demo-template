@@ -46,6 +46,58 @@
 			</div>
 		</div>
 	  </div>
+	  
+	  <?php
+	  
+		class MovieStats {
+			public $movie_id;
+			public $vote_love;
+			public $all_votes;
+			public function __construct($movie_id){ 
+				$this->movie_id = $movie_id;
+				$this->vote_love = 0;
+				$this->all_votes = 0;
+			}
+		}
+		
+		include 'config.php';
+		
+		$movie_id_list = array();
+		$sql = "SELECT * FROM rated_movie";
+		$result = mysql_query($sql);
+		if($result) {
+			if(mysql_num_rows($result) > 0 ) {
+				while($row = mysql_fetch_array($result)) {
+					$entered = False;
+					foreach ($movie_id_list as $m_key) { 
+						if($m_key->movie_id == $row['movie_id']) {
+							if($row['vote'] == 'LOVED')
+								$m_key->vote_love++;
+							$m_key->all_votes++;
+							$entered = True;
+						}
+					}
+					if(!$entered){
+						$movie_obj = new MovieStats($row['movie_id']);
+							if($row['vote'] == 'LOVED')
+								$movie_obj->vote_love++;
+							$movie_obj->all_votes++;
+						array_push($movie_id_list, $movie_obj);
+					}
+				}
+				mysql_free_result($result);
+			}
+			else 
+				echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
+			
+			foreach($movie_id_list as $key)
+					echo '<p>title: ' . $key->movie_id . ', liked: ' . $key->vote_love . ', all_votes: ' . $key->all_votes . '</p>';
+		}
+		else 
+			echo "<p>No result from server!<br>Error: " . $result . "</p>";
+		
+	  ?>
+	  
 	  <?php
         include 'footer.php';
       ?>

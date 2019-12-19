@@ -38,8 +38,10 @@
 						}
 						mysql_free_result($result);
 					}
-					else 
-						echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
+					else {
+						echo "<p>You didn't vote anything yet!</p>";
+						echo "<p>Search your favorite movie and VOTE!</p>";
+					}
 				}
 				else 
 					echo "<p>No result from server!<br>Error: " . $result . "</p>";
