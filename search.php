@@ -33,14 +33,32 @@
 	  ?>
 	  
 	  <?php
-			if($json_resp->Response == "False")
+			if($json_resp->Response == "False") {
 				echo "<h1>Movie not found!</h1>";
+				echo "<h1>Search for another one ..</h1>";
+				echo '<form class="search-box" action="search.php" method="GET">';
+				echo '<input id="search-bar" class="form-control" type="text" name="movie" placeholder="Search...">';
+				echo '<a href="#" class="btn-search">';
+				echo '<i class="fas fa-search"></i>';
+				echo '</a>';
+				echo '</form>';
+			}
 			else {
+				echo '<div class="movie_container">';
+				
 				echo "<h1>" . $json_resp->Title . " (" . $json_resp->Year . ")<h1>";
 				echo "<h2>Rated: " . $json_resp->Rated . "<h2>";
 				echo "<h2>Genre: " . $json_resp->Genre . "<h2>";
+				echo '<div class="table">';
+				echo '<div class="row">';
+				echo '<div class="col-sm">';
 				echo '<img class="big_poster" src="' . $json_resp->Poster . '" alt="movie poster">';
-				echo "<p>" . $json_resp->Plot . "</p>";
+				echo '</div>';
+				echo '<div class="col-sm right-col">';
+				echo '<p class="movie_plot">' . $json_resp->Plot . '</p>';
+				echo '</div>';
+				echo '</div>';
+				echo '</div>';
 				
 				if($_SESSION['$user_logged']) {
 					include 'config.php';
@@ -57,8 +75,8 @@
 							echo '<form action="rating.php" method="post">';
 							echo '<input type="hidden" name="movieId" value="' . $json_resp->imdbID . '">';
 							echo '<input type="hidden" name="movieTitle" value="' . $json_resp->Title . '">';
-							echo '<input type="submit" name="action" value="loved">';
-							echo '<input type="submit" name="action" value="hated" >';
+							echo '<input class="btn btn_love" type="submit" name="action" value="LOVE">';
+							echo '<input class="btn btn_hate" type="submit" name="action" value="HATE" >';
 							echo '</form>';
 						}
 					}
@@ -66,6 +84,8 @@
 				else {
 					echo '<p><a href="2.php">Login</a> or <a href="3.php">Register</a> to RATE this movie!';
 				}
+				
+				echo '</div>';
 			}
 	   ?>
 	  

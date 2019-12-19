@@ -10,6 +10,8 @@
     $sql = "INSERT INTO user (nume, prenume, email, password, activ, tip, sir) 
         VALUES ('$name', '$surname', '$email', '$sha1_pass', 'TBA', 'TBA', 'TBA')";
     if(mysql_query($sql, $conn->connection)) {
+	  session_start();
+	  $_SESSION['$reg_ok'] = "Registered succesfully!<br> You can now LOGIN!";
       header("Location: 2.php");
     }
     else 

@@ -34,9 +34,14 @@
 							$response = file_get_contents($uri);
 							$json_resp = json_decode($response);
 							
-							echo '<p>' . $json_resp->Title . '</p>';
+							echo '<p>' . $json_resp->Title;
+							if($row['vote'] == 'LOVED')
+								echo ' - <span class="sp_love">&#128150</span></p>';
+							else if($row['vote'] == 'HATED')
+								echo ' - <span class="sp_hate">&#128078</span></p>';
+							
 							echo '<img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '">';
-							echo '<p>Vote: ' . $row['vote'] . '</p>';
+							//echo '<p>Vote: ' . $row['vote'] . '</p>';
 						}
 						mysql_free_result($result);
 					}
@@ -55,6 +60,10 @@
 				if(isset($_SESSION['$login_error'])) {
 					echo '<p>ERROR: ' . $_SESSION['$login_error'] . '</p>';
 					unset($_SESSION['$login_error']);
+				}
+				if(isset($_SESSION['$reg_ok'])) {
+					echo '<p>' . $_SESSION['$reg_ok'] . '</p>';
+					unset($_SESSION['$reg_ok']); 
 				}
 				include 'form_login.html';
 				echo '</div>';

@@ -88,10 +88,8 @@
 									
 				$response = file_get_contents($uri);
 				$json_resp = json_decode($response);
-				echo '<h2><a href="search.php?movie=' . $json_resp->Title . '">' . 
-				$json_resp->Title . ' (' . $json_resp->Year . ')</a></h2>';
-				echo '<img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '">';
-				echo '<p>' . $json_resp->Plot . '</p>';
+				echo '<h2>' . $json_resp->Title . ' (' . $json_resp->Year . ')</a></h2>';
+				echo '<a href="search.php?movie=' . $json_resp->Title . '"><img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '"></a>';
 				if($stats_perc < 70)
 					echo '<p><span class="stats_hated">' . $stats_perc . '% LOVED</span> this movie!</p>'; 
 				else 

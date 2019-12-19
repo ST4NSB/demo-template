@@ -1,10 +1,10 @@
 <?php
 	$vote = '';
 	$can_access = False;
-	if ($_POST['action'] == 'loved') {
+	if ($_POST['action'] == 'LOVE') {
 		$vote = 'LOVED';
 		$can_access = True;
-	} else if ($_POST['action'] == 'hated') {
+	} else if ($_POST['action'] == 'HATE') {
 		$vote = 'HATED';
 		$can_access = True;
 	} 

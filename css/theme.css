@@ -19,14 +19,21 @@ body{
 
 #container {
 	width: 100%;
-	margin: 20px auto;
+	margin: 0 auto;
 	text-align: center;
 	flex: 1;
 }
 
 h1 {
-	font-size: x-large;
+	font-size: xx-large;
 	letter-spacing: 2px;
+	color: #888;
+}
+
+h2 {
+	font-size: x-large;
+	letter-spacing: 1px;
+	color: #888;
 }
 
 p {
@@ -64,6 +71,8 @@ footer label {
     display:inline-block;
     position:relative;
 	width: 40%;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .btn-search {
@@ -141,4 +150,77 @@ footer label {
 .form .message a {
   color: #d94f5c;
   text-decoration: none;
+}
+
+.movie_container {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.movie_plot {
+	position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.right-col {
+	border-left: 2px solid #555;
+}
+
+
+.big_poster, .big_poster:before{
+  border-style: solid;
+  border-color: #b3743d; /* fallback color */
+  border-image: linear-gradient(30deg, #b3743d 0%, #d0a987 50%, #b3743d 100%);
+  border-image-slice: 1;
+}
+
+.big_poster {
+  margin: 20px auto; /* whatever */
+  border-width: 6px;
+}
+.big_poster:before {
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  border-width: 3px;
+}
+
+.btn {
+  box-shadow: 1px 1px 0 rgba(255,255,255,0.5) inset;
+  border-radius: 3px;
+  border: 1px solid;
+  display: inline-block;
+  height: 25px;
+  width: 50px;
+  line-height: 14px;
+  padding: 0 4px;
+
+  font-size: 11px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.btn_love {
+  color: Tomato;
+  background-color: #cc3300;
+  margin-right: 15px;
+}
+
+.btn_hate {
+  color: #3c3c3c;
+  background-color: #f0f0f0;
+}
+
+.small_poster {
+	height: 333px;
+	widht: 200px;
+	border-left:5px solid;
+  border-top:0; /*needed for safari*/
+  border-bottom:0; /*needed for safari*/
+  border-right:0; /*needed for safari*/
+  border-image: linear-gradient(to bottom, #2b68c4 0%,#cf2d6e 100%)1;
+  
 }
