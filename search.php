@@ -1,9 +1,10 @@
 <?php
 	$key = 'beefda61';
-	$movie = filter_input(INPUT_GET, 'movie', FILTER_SANITIZE_STRING);
-	$uri = "http://www.omdbapi.com/?apikey=" . $key . "&t=" . $movie;
-			
-	$response = file_get_contents($uri);
+	$movie = rawurlencode($_GET['movie']);
+	//$movie = rawurlencode(filter_input(INPUT_GET, 'movie', FILTER_SANITIZE_STRING));
+	$uri = 'http://www.omdbapi.com/?apikey=' . $key . '&t=' . $movie;
+				
+	$response = file_get_contents($uri, true);
 	$json_resp = json_decode($response);
 ?>
 
@@ -35,7 +36,7 @@
 			if($json_resp->Response == "False")
 				echo "<h1>Movie not found!</h1>";
 			else {
-				echo "<h1>" . $json_resp->Title . "(" . $json_resp->Year . ")<h1>";
+				echo "<h1>" . $json_resp->Title . " (" . $json_resp->Year . ")<h1>";
 				echo "<h2>Rated: " . $json_resp->Rated . "<h2>";
 				echo "<h2>Genre: " . $json_resp->Genre . "<h2>";
 				echo '<img class="big_poster" src="' . $json_resp->Poster . '" alt="movie poster">';
