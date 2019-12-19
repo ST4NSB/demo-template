@@ -34,7 +34,7 @@
 	  
 	  <hr class="style13">
 	  
-	  <h1 class="recent">Recent Ratings</h1>
+	  <h1 class="recent">All Database Ratings</h1>
 	  <div class="table">
 		<div class="row">
 	  <?php
