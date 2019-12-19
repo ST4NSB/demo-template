@@ -1,4 +1,4 @@
-# MRDB
+# MRDB - Movie Rating Database
 http://webspace.ulbsibiu.ro/adrian.barbulescu/web/index.php
 
 Uses omdb api!
