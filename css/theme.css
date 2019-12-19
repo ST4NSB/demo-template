@@ -223,10 +223,10 @@ footer label {
 .small_poster {
 	height: 333px;
 	widht: 200px;
-	border-left:5px solid;
+	border-left: 0;
   border-top:0; /*needed for safari*/
-  border-bottom:0; /*needed for safari*/
-  border-right:0; /*needed for safari*/
+  border-bottom: 5px solid; /*needed for safari*/
+  border-right: 5px solid; /*needed for safari*/
   border-image: linear-gradient(to bottom, #2b68c4 0%,#cf2d6e 100%)1;
 }
 
