@@ -42,13 +42,26 @@
 				echo '<img class="big_poster" src="' . $json_resp->Poster . '" alt="movie poster">';
 				echo "<p>" . $json_resp->Plot . "</p>";
 				
-				if($_SESSION['$user_logged']) {	
-					echo '<form action="rating.php" method="post">';
-					echo '<input type="hidden" name="movieId" value="' . $json_resp->imdbID . '">';
-					echo '<input type="hidden" name="movieTitle" value="' . $json_resp->Title . '">';
-					echo '<input type="submit" name="action" value="loved">';
-					echo '<input type="submit" name="action" value="hated" >';
-					echo '</form>';
+				if($_SESSION['$user_logged']) {
+					include 'config.php';
+					
+					$u_id = $_SESSION['$user_id'];
+					$mv_id = $json_resp->imdbID;
+					$sql = "SELECT * FROM rated_movie WHERE user_id='$u_id' AND movie_id='$mv_id'";
+					$result = mysql_query($sql);
+					if($result) {
+						if(mysql_num_rows($result) > 0 ) {
+							echo '<p>You already voted this movie!</p>';
+						}
+						else {
+							echo '<form action="rating.php" method="post">';
+							echo '<input type="hidden" name="movieId" value="' . $json_resp->imdbID . '">';
+							echo '<input type="hidden" name="movieTitle" value="' . $json_resp->Title . '">';
+							echo '<input type="submit" name="action" value="loved">';
+							echo '<input type="submit" name="action" value="hated" >';
+							echo '</form>';
+						}
+					}
 				}
 				else {
 					echo '<p><a href="2.php">Login</a> or <a href="3.php">Register</a> to RATE this movie!';

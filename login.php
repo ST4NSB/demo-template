@@ -19,8 +19,12 @@
 				mysql_free_result($result);
 				header("Location: index.php");
 			}
-			else 
-				echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
+			else {
+				session_start();
+				$_SESSION['$login_error'] = "Wrong Login Values!";
+				header("Location: 2.php");
+				//echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
+			}
     }
     else 
 			echo "<p>No result from server!<br>Error: " . $result . "</p>";

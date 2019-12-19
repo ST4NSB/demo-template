@@ -47,7 +47,9 @@
 					echo "<p>No result from server!<br>Error: " . $result . "</p>";
 			}	
 			else {	
-				include 'form_login.html';		
+				if(isset($_SESSION['$login_error']))
+					echo '<p>ERROR: ' . $_SESSION['$login_error'] . '</p>';
+				include 'form_login.html';
 			}     
 		?>         
 		</div>	<script src="js/main.js"></script>   

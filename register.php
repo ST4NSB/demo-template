@@ -13,5 +13,5 @@
       header("Location: 2.php");
     }
     else 
-      echo "<p>Error: " . $sql . "<br>" . mysql_error($conn) . "</p>";
+      echo "<p>Something went wrong! <br>Error: " . $sql . "<br>" . mysql_error($conn) . "</p>";
 ?>

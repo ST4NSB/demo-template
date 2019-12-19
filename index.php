@@ -36,17 +36,8 @@
 		  </form>
 	  </header>
 	  
-	  <div class="container">
+	  <div class="table">
 		<div class="row">
-			<div class="col-sm">
-				first column
-			</div>
-			<div class="col-sm">
-				second column
-			</div>
-		</div>
-	  </div>
-	  
 	  <?php
 	  
 		class MovieStats {
@@ -90,13 +81,49 @@
 			else 
 				echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
 			
-			foreach($movie_id_list as $key)
-					echo '<p>title: ' . $key->movie_id . ', liked: ' . $key->vote_love . ', all_votes: ' . $key->all_votes . '</p>';
+			function write_movie($movie_id_list, $index) {
+				$mv_id = $movie_id_list[$index]->movie_id;
+				$stats_perc = ($movie_id_list[$index]->vote_love / $movie_id_list[$index]->all_votes) * 100;
+				$key = 'beefda61';
+				$uri = "http://www.omdbapi.com/?apikey=" . $key . "&i=" . $mv_id;
+									
+				$response = file_get_contents($uri);
+				$json_resp = json_decode($response);
+				echo '<h2><a href="search.php?movie=' . $json_resp->Title . '">' . 
+				$json_resp->Title . ' (' . $json_resp->Year . ')</a></h2>';
+				echo '<img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '">';
+				echo '<p>' . $json_resp->Plot . '</p>';
+				if($stats_perc < 70)
+					echo '<p><span class="stats_hated">' . $stats_perc . '% LOVED</span> this movie!</p>'; 
+				else 
+					echo '<p><span class="stats_loved">' . $stats_perc . '% LOVED</span> this movie!</p>'; 
+			}
+			
+			echo '<div class="col-sm">';
+			for ($i = 0; $i < count($movie_id_list); $i += 3) {
+				write_movie($movie_id_list, $i);
+			}
+			echo '</div>';
+			
+			echo '<div class="col-sm">';
+			for ($i = 1; $i < count($movie_id_list); $i += 3) {
+				write_movie($movie_id_list, $i);
+			}
+			echo '</div>';
+			
+			echo '<div class="col-sm">';
+			for ($i = 2; $i < count($movie_id_list); $i += 3) {
+				write_movie($movie_id_list, $i);
+			}
+			echo '</div>';
 		}
 		else 
 			echo "<p>No result from server!<br>Error: " . $result . "</p>";
 		
 	  ?>
+	  
+		</div>
+	  </div>
 	  
 	  <?php
         include 'footer.php';
