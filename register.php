@@ -10,7 +10,7 @@
     $sql = "INSERT INTO user (nume, prenume, email, password, activ, tip, sir) 
         VALUES ('$name', '$surname', '$email', '$sha1_pass', 'TBA', 'TBA', 'TBA')";
     if(mysql_query($sql, $conn->connection)) {
-      header("Location: index.php");
+      header("Location: 2.php");
     }
     else 
       echo "<p>Error: " . $sql . "<br>" . mysql_error($conn) . "</p>";
