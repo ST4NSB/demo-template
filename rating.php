@@ -1,21 +1,27 @@
 <?php
-
-	include 'config.php';
-	$movie_id = $_POST['movieId'];
-	$movie = $_POST['movieTitle'];
-	$user_id = $_SESSION['user_id'];
 	$vote = '';
+	$can_access = False;
 	if ($_POST['action'] == 'loved') {
 		$vote = 'LOVED';
+		$can_access = True;
 	} else if ($_POST['action'] == 'hated') {
 		$vote = 'HATED';
+		$can_access = True;
 	} 
 	
-	$sql = "INSERT INTO rated_movie (vote, movie_id, user_id) 
+	if($can_access) {
+		include 'config.php';
+		include 'user_logged.php';
+		
+		$user_id = $_SESSION['$user_id'];
+		$movie_id = $_POST['movieId'];
+		$movie = $_POST['movieTitle'];
+		
+		$sql = "INSERT INTO rated_movie (vote, movie_id, user_id) 
         VALUES ('$vote', '$movie_id', '$user_id')";
-    if(!mysql_query($sql, $conn->connection)) 
-      echo "<p>Error: " . $sql . "<br>" . mysql_error($conn) . "</p>";
-
+		if(!mysql_query($sql, $conn->connection)) 
+		  echo "<p>Error: " . $sql . "<br>" . mysql_error($conn) . "</p>";
+	}
 ?>
 
 <!DOCTYPE html>
