@@ -23,20 +23,18 @@
 	  ?>
 	  
 	  <header>
-		  <h1> Search for a movie .. </h1>
-		  <form action="search.php" method="GET"> 
-			  <div class="container h-100">
-				<div class="d-flex justify-content-center h-100">
-					<div class="searchbar">
-						<input class="search_input" type="text" name="movie" placeholder="Search...">
-						<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-					</div>
-				</div>
-			  </div>
+		  <h1> Search for a movie .. and rate it! </h1>
+		  <form class="search-box" action="search.php" method="GET">
+			<input id="search-bar" class="form-control" type="text" name="movie" placeholder="Search...">
+			<a href="#" class="btn-search">
+				<i class="fas fa-search"></i>
+			</a>
 		  </form>
 	  </header>
 	  
-	  <h2>Recent Ratings</h2>
+	  <hr class="style13">
+	  
+	  <h1>Recent Ratings</h1>
 	  <div class="table">
 		<div class="row">
 	  <?php

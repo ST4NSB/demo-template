@@ -21,7 +21,10 @@
 			include 'logout.php';
 		}
 		else {
+			echo '<div id="container">';
 			include 'form_register.html';
+			echo '</div>';
+			include 'footer.php';
 		}
       ?>
     </div>

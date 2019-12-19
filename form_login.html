@@ -1,10 +1,9 @@
-<div class="input_form">
-  <legend>Login</legend>
-    <form action="login.php" method="post" onsubmit="return alertOnLogin()">
-      <label>Account e-mail:</label> <br>
-      <input type="email" name="email"> <br>
-      <label>Account password:</label> <br>
-      <input type="password" name="password"> <br> <br>
-      <input id="loginbttn" type="submit" value="Submit" onclick="addSelectorId()"> 
+<div class="form">
+    <form class="login-form" action="login.php" method="post" onsubmit="return alertOnLogin()">
+	  <h1>Login</h1>
+      <input type="email" placeholder="e-mail address" name="email">
+      <input type="password" placeholder="password" name="password">
+      <input class="logicbttn" type="submit" value="Submit" onclick="addSelectorId()">
+      <p class="message">Not registered? <a href="3.php">Create an account</a></p>
     </form>
-</div> 
+</div>

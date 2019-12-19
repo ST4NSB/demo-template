@@ -18,6 +18,7 @@
 			include 'navbar.php';		
 			include 'config.php';
 			if($_SESSION['$user_logged']) {		
+				echo '<div id="container">';
 				echo '<h1>' . $_SESSION['$name'] . ' ' . $_SESSION['$surname'] . ' - Profile</h1>';			
 				echo '<button type="button">Javascript</button>';	
 				
@@ -40,22 +41,28 @@
 						mysql_free_result($result);
 					}
 					else {
-						echo "<p>You didn't vote anything yet!</p>";
-						echo "<p>Search your favorite movie and VOTE!</p>";
+						echo "<h1>You didn't vote anything yet!</h1>";
+						echo "<h1>Search your favorite movie and VOTE!</h1>";
 					}
+					echo '</div>';
+					include 'footer.php';
 				}
 				else 
 					echo "<p>No result from server!<br>Error: " . $result . "</p>";
 			}	
 			else {	
+				echo '<div id="container">';
 				if(isset($_SESSION['$login_error'])) {
 					echo '<p>ERROR: ' . $_SESSION['$login_error'] . '</p>';
 					unset($_SESSION['$login_error']);
 				}
 				include 'form_login.html';
+				echo '</div>';
+				include 'footer.php';
 			}     
 		?>         
-		</div>	<script src="js/main.js"></script>   
+		</div>	
+		<script src="js/main.js"></script>   
 		<script src="js/2.js"></script> 
 	</body>
 	</html>

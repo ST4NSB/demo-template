@@ -1,14 +1,12 @@
-<div class="input_form">
-  <legend>Register</legend>
-    <form action="register.php" method="post">
-      <label>Account Name:</label> <br>
-      <input type="text" name="name"> <br>
-      <label>Account Surname:</label> <br>
-      <input type="text" name="surname"> <br>
-      <label>Account e-mail:</label> <br>
-      <input type="email" name="email"> <br>
-      <label>Account password:</label> <br>
-      <input type="password" name="password"> <br> <br>
-      <input id="registerbttn" type="submit" value="Submit"> 
-    </form>
-</div> 
+<div class="form">
+	<form class="register-form" action="register.php" method="post">		
+		<h1>Register</h1>
+		<input type="text" placeholder="name" required  name="name">
+		<input type="text" placeholder="surname" required  name="surname">
+		<input type="email" placeholder="e-mail address" required  name="email">
+		<input type="password" placeholder="password" required name="password">
+		<input class="logicbttn" type="submit" value="Submit">
+		<p class="message">Already registered? <a href="2.php">Sign In</a></p>
+	</form>
+</div>
+	
