@@ -33,7 +33,8 @@
 							$response = file_get_contents($uri);
 							$json_resp = json_decode($response);
 							
-							echo '<p>Movie title: ' . $json_resp->Title . '</p>';
+							echo '<p>' . $json_resp->Title . '</p>';
+							echo '<img class="small_poster" alt="movie poster" src="' . $json_resp->Poster . '">';
 							echo '<p>Vote: ' . $row['vote'] . '</p>';
 						}
 						mysql_free_result($result);
@@ -47,8 +48,10 @@
 					echo "<p>No result from server!<br>Error: " . $result . "</p>";
 			}	
 			else {	
-				if(isset($_SESSION['$login_error']))
+				if(isset($_SESSION['$login_error'])) {
 					echo '<p>ERROR: ' . $_SESSION['$login_error'] . '</p>';
+					unset($_SESSION['$login_error']);
+				}
 				include 'form_login.html';
 			}     
 		?>         

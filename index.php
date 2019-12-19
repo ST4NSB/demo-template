@@ -36,6 +36,7 @@
 		  </form>
 	  </header>
 	  
+	  <h2>Recent Ratings</h2>
 	  <div class="table">
 		<div class="row">
 	  <?php
@@ -79,7 +80,7 @@
 				mysql_free_result($result);
 			}
 			else 
-				echo "<p> Wrong input values!<br>Error: , " . $result . "</p>";
+				$movie_not_found = True;
 			
 			function write_movie($movie_id_list, $index) {
 				$mv_id = $movie_id_list[$index]->movie_id;
@@ -125,7 +126,10 @@
 		</div>
 	  </div>
 	  
+	  
 	  <?php
+		if($movie_not_found)
+			echo "<h1>No movies rated yet!</h1>";
         include 'footer.php';
       ?>
 		
